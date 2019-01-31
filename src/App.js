@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 
 import './App.css';
+import WeatherData from './WeatherData';
 
 /** 
  * This example illustrates a simple react project 
@@ -70,22 +71,10 @@ class App extends Component {
     possible to get a JSON response for an invalid zip in which 
     case the step below fails. 
     */ 
-    console.log(this.state.weatherData)
-    // Take the weather data apart to more easily populate the component
-    const { main, description, icon } = this.state.weatherData.weather[0]
-    const { temp, pressure, humidity, temp_min, temp_max } = this.state.weatherData.main 
-    
-    return (
-      <div>
-        <div>Title: {main}</div>
-        <div>Desc: {description}</div>
-        <div>Icon: {icon}</div>
-        <div>Temp: {temp}</div>
-        <div>Pressure: {pressure}</div>
-        <div>Humidity: {humidity}</div>
-        <div>Temp Min: {temp_min} Max:{temp_max}</div>
-      </div>
-    )
+
+    return (this.state.weatherData.cod === 200)?
+     <WeatherData {...this.state.weatherData.weather[0]} {...this.state.weatherData.main}/>
+     :<h1>Invalid Zip Code</h1>
   }
 
   render() {
