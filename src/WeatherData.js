@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import Temperature from './Temperature';
+import WeatherDescription from './WeatherDescription';
 
 export default class WeatherData extends Component {
   render() {
     return (
         <div>
-          <div>Title: {this.props.main}</div>
-          <div>Desc: {this.props.description}</div>
-          <div>Icon: {this.props.icon}</div>
+          <WeatherDescription 
+          title={this.props.main}
+          description={this.props.description}
+          icon={this.props.icon}
+          />
           <Temperature temp={this.props.temp}/>
           <div>Pressure: {this.props.pressure}</div>
           <div>Humidity: {this.props.humidity}</div>
