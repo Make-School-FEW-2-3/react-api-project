@@ -7,8 +7,8 @@ export default class Temperature extends Component {
   }
   
   render() {
-    return (
-        <div>Temp: {this.kToF()}˚F</div>
-    )
+        const ret = this.kToF() + '˚F';
+        return ret;
+    
   }
 }
