@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Temperature from './Temperature';
 import WeatherDescription from './WeatherDescription';
+import Atmosphere from './Atmosphere';
 
 export default class WeatherData extends Component {
   render() {
@@ -12,10 +13,9 @@ export default class WeatherData extends Component {
           icon={this.props.icon}
           />
           <div><Temperature temp={this.props.temp}/></div>
-          <div>Pressure: {this.props.pressure}</div>
-          <div>Humidity: {this.props.humidity}</div>
-          <div><pre>Low: <Temperature temp={this.props.temp_min}/>
-          , High: <Temperature temp={this.props.temp_max}/></pre></div>
+          <Atmosphere {...this.props}/>
+          <div>Low:   <Temperature temp={this.props.temp_min}/></div>
+          <div>High:  <Temperature temp={this.props.temp_max}/></div>
         </div>
       )
   }
